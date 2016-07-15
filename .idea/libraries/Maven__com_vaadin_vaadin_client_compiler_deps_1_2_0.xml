@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-client-compiler-deps/1.2.0/vaadin-client-compiler-deps-1.2.0-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-client-compiler-deps/1.2.0/vaadin-client-compiler-deps-1.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

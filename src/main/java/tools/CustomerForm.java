@@ -6,7 +6,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import elemental.events.KeyboardEvent;
 import model.Customer;
 import service.CustomerService;
-import vaadin.MyUI;
+import vaadin.ui.MyUI;
 
 /**
  * Created by VMoskalik on 10.05.2016.

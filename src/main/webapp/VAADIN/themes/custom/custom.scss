@@ -31,8 +31,7 @@
 
 @import "../valo/valo.scss";
 
-@mixin mytheme {
+@mixin custom {
   @include valo;
-
   // Insert your own theme rules here
 }

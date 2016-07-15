@@ -1,4 +1,4 @@
-package vaadin;
+package vaadin.ui;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -6,6 +6,8 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.event.ShortcutAction;
+import com.vaadin.event.ShortcutListener;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
@@ -14,6 +16,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import model.Customer;
 import service.CustomerService;
 import tools.CustomerForm;
+import elemental.events.KeyboardEvent;
 
 import java.util.List;
 
@@ -84,6 +87,12 @@ public class MyUI extends UI {
                 form.setCustomer(customer);
             }
         });
+        grid.addShortcutListener(new ShortcutListener("", ShortcutAction.KeyCode.ESCAPE, null) {
+            @Override
+            public void handleAction(Object sender, Object target) {
+                grid.deselectAll();
+            }
+        });
 
         setContent(layout);
     }
@@ -92,10 +101,5 @@ public class MyUI extends UI {
     public void updateList(){
         List<Customer> customers = service.findAll(filterText.getValue());
         grid.setContainerDataSource(new BeanItemContainer<>(Customer.class, customers));
-    }
-
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
     }
 }
